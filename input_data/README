@@ -1,0 +1,6 @@
+These input data files have been produced by reading F8 (pulse height) tally data from the MCNP output MCTAL files (output files ending with *m). The MCTAL files were processed using the mc-tools Python package (https://github.com/kbat/mc-tools), and written to comma-separated value (csv) files using Pandas. In processing the MCTAL files, the data from the two identical gamma-ray stations in the model (assumed to be statistically independent) were summed and averaged.
+
+Three csv files are found here:
+- F8_tally_bin_params.csv: contains the lower and upper edge of each energy bin in the tally data. Units: [MeV].
+- F8_tally_values.csv: the actual tally data, i. e. the count rate in each energy bin. The tally did not include energy broadening. There is a column for each energy bin, as well as the 'epsilon bin' (below 1E-5 MeV to catch particles travelling through cell without leaving energy) and the 'total bin' (which was not used in the analysis, since it also includes counts from the epsilon bin). Units: [counts/second/bin].
+- F8_tally_d_values.csv: the Monte Carlo statistical uncertainties in the tally data. Contains the same columns as the tally_values file. Units: [counts/second/bin].
